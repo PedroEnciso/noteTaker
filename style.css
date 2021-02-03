@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.header h1 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.header h2 {
+    text-align: center;
+    color: green;
+    padding-bottom: 25px;
+}
+
+.inputArea {
+    width: 100%;
+    display: flex;
+}
+
+.inputArea label {
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.inputArea textarea {
+    width: 100%;
+    height: 60px;
+    border: 2px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 0px 0px;
+    line-height: 18px;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.inputArea textarea:focus {
+    outline: none;
+    border: 2px solid lightblue;
+    font-family: Georgia, serif;
+}
+
+.buttonContainer {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.buttonContainer button {
+    background-color: green;
+    border: none;
+    padding: 12px 15px;
+    color: white;
+    font-size: 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonContainer button:hover {
+    background-color: darkgreen;
+}
+
+.buttonContainer button:focus {
+    outline: none;
+}
+
+.noteContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.noteContainer div {
+    width: 100%;
+    height: 100%;
+    height: fit-content;
+    padding: 10px 15px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    box-sizing: border-box; 
+}
+
+.noteContainer div h4{
+    font-size: 20px;
+}
+
+.noteContainer div p{
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px 0 15px;
+}
+
+.noteContainer div button{
+    background-color: blue;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.noteContainer div button:hover {
+    background: darkblue;
+}
+
+.noteContainer div button:focus {
+    outline: none;
+}

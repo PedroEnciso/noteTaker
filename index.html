@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Tacker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Note Taker</h1>
+        <h2>Add A New Note</h2>
+
+        <form class="inputArea">
+            <label for="inputBox">Note:</label>
+            <textarea name="inputBox" type="reset" id="inputBox" cols="30" rows="10" placeholder="Write your note here" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size: 16px; padding: 5px 5px;" ></textarea>
+        </form>
+        <div class="buttonContainer">
+            <button id="addNote" onclick="createNoteBox()">Add Note</button>
+        </div>
+    </div>
+
+    <div class="noteContainer" id="noteContainer"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
