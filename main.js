@@ -1,10 +1,10 @@
 let numberOfNotes = 1;
+let modal = document.getElementById('modal');
 
 function getText() {
     let inputText = document.getElementById('inputBox').value;
-    inputTextCopy = document.createTextNode(inputText);
     document.getElementById('inputBox').value = "";
-    return inputTextCopy;
+    return inputText;
 }
 
 function createNoteBox() {
@@ -18,21 +18,64 @@ function createNoteBox() {
     let noteDiv = document.createElement('div');
     let noteTitle = document.createElement('h4');
     let noteText = document.createElement('p');
-    let noteButton = document.createElement('button');
+    let hiddenText = document.createElement('p');
+    let noteButton = createButton();
+
+    hiddenText.style.display = 'none';
+
+    //Put the full text in hidden <p> and shorten the note text for display
+    let inputText = getText();
+    let trimmedInputText = trimText(inputText);
+    inputText = document.createTextNode(inputText);
 
     //put content inside note elements
-    noteTitle.innerHTML = "Note #" + numberOfNotes;
-    noteText.appendChild(getText());
-    noteButton.innerHTML = "View Note";
+    noteTitle.innerHTML = "Note " + numberOfNotes;
+    noteText.appendChild(trimmedInputText);
+    hiddenText.appendChild(inputText);
 
     //put note elements into the note div
     noteDiv.appendChild(noteTitle);
     noteDiv.appendChild(noteText);
     noteDiv.appendChild(noteButton);
+    noteDiv.appendChild(hiddenText);
 
     //put the note div into the note section
     let noteContainer = document.getElementById('noteContainer');
     noteContainer.appendChild(noteDiv);
 
     numberOfNotes++;
+}
+
+function createButton() {
+    let noteButton = document.createElement('button');
+    noteButton.innerHTML = "View Note";
+    noteButton.onclick = function () {
+        parentDiv = this.parentElement;
+        createModal(parentDiv);
+    }
+    return noteButton;
+}
+
+function createModal(noteDiv) {
+    let noteInput =  noteDiv.children[3].textContent;
+    let noteText = document.createTextNode(noteInput);
+    let modalText = document.getElementById('modal-text');
+    modalText.appendChild(noteText);
+    modal.style.visibility = 'visible';
+}
+
+//function to make the modal disappear
+function clearModal() {
+    modal.style.visibility = 'hidden';
+    document.getElementById('modal-text').innerHTML = "";
+}
+
+//check the length of the note
+function trimText(noteText) {
+    if (noteText.length <= 50) {return noteText = document.createTextNode(noteText);}
+    else {
+        trimmedNoteText = noteText.substring(0, 50) + "...";
+        trimmedNoteText = document.createTextNode(trimmedNoteText);
+        return trimmedNoteText;
+    }
 }
