@@ -1,2 +1,2 @@
 # noteTaker
-My note taker app
+This app allows the user to write a note and save it. When saved, the note gets stored onto the webpage where it is abbreviated. The user can press the "View Note" button on the note to see the full note.
