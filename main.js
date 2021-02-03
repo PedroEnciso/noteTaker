@@ -61,12 +61,12 @@ function createModal(noteDiv) {
     let noteText = document.createTextNode(noteInput);
     let modalText = document.getElementById('modal-text');
     modalText.appendChild(noteText);
-    modal.style.visibility = 'visible';
+    modal.style.display = 'block';
 }
 
 //function to make the modal disappear
 function clearModal() {
-    modal.style.visibility = 'hidden';
+    modal.style.display = 'none';
     document.getElementById('modal-text').innerHTML = "";
 }
 
@@ -79,3 +79,10 @@ function trimText(noteText) {
         return trimmedNoteText;
     }
 }
+
+//close modal if user clicks outside of the window (this is a cool function i found on w3schools.com)
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
